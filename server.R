@@ -13,7 +13,7 @@ server = function(input, output, session) {
     intercept_test = coef(summary(reg_model))[1, 4]
     model_significance = anova(reg_model)$"Pr(>F)"[1]
     check_bool <- 0
-    if (input$remove_intercept && p_value_intercept < alpha) {
+    if (input$remove_intercept && p_value_intercept > alpha) {
       reg_model <- lm(y ~ 0 + x)
       b0 <- 0
       b1 <- coef(reg_model)[1]
