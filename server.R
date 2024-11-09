@@ -30,7 +30,6 @@ server = function(input, output, session) {
       sxx <- sum((x - mean(x))^2)
       yhat = b0 + b1 * x
       yhat0 = b0 + b1 * x0
-      MSE = sum(residuals(reg_model)^2) / (length(x) - 2)
     }
     output$modelSummary <- renderPrint({
       cat("Regression Model Summary:\n")
